@@ -1,0 +1,128 @@
+{
+  "name": "@camstack/addon-example-bundle",
+  "version": "0.1.0",
+  "description": "Bundle example: one npm package, three addons, with runner placement and a shared group.",
+  "keywords": [
+    "camstack",
+    "addon",
+    "camstack-addon",
+    "device-provider",
+    "log-destination"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "python"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "camstack": {
+    "displayName": "Example Bundle",
+    "description": "Fake devices plus two frame-free observers that share one runner.",
+    "bundle": {
+      "displayName": "Example Bundle",
+      "description": "One install unit. Enable, settings, and runners stay per addon.",
+      "icon": "assets/bundle.svg"
+    },
+    "addons": [
+      {
+        "id": "example-devices",
+        "name": "Example Devices",
+        "version": "0.1.0",
+        "description": "Device provider that publishes two in-memory devices on its own runner.",
+        "entry": "./dist/example-devices.js",
+        "icon": "assets/devices.svg",
+        "color": "#0369a1",
+        "category": "devices",
+        "instanceMode": "multiple",
+        "mode": "standalone",
+        "supportsLocationImport": false,
+        "protected": false,
+        "execution": {
+          "placement": "any-node",
+          "heapProfile": "light"
+        },
+        "capabilities": [
+          {
+            "name": "device-provider",
+            "autoActivate": false,
+            "optional": false
+          }
+        ]
+      },
+      {
+        "id": "example-listener",
+        "name": "Example Listener",
+        "version": "0.1.0",
+        "description": "Subscribes to device.registered. Shares a runner with the exporter.",
+        "entry": "./dist/example-listener.js",
+        "icon": "assets/listener.svg",
+        "color": "#7c3aed",
+        "category": "system",
+        "protected": false,
+        "passive": true,
+        "execution": {
+          "placement": "hub-only",
+          "group": "example-observers",
+          "heapProfile": "light"
+        },
+        "capabilities": []
+      },
+      {
+        "id": "example-exporter",
+        "name": "Example Exporter",
+        "version": "0.1.0",
+        "description": "In-memory log destination. Co-located with the listener. Declares a pip requirements file.",
+        "entry": "./dist/example-exporter.js",
+        "icon": "assets/exporter.svg",
+        "color": "#b45309",
+        "category": "system",
+        "protected": false,
+        "passive": true,
+        "mayRequirePython": true,
+        "execution": {
+          "placement": "hub-only",
+          "group": "example-observers",
+          "heapProfile": "light"
+        },
+        "capabilities": [
+          {
+            "name": "log-destination",
+            "dependsOn": [],
+            "autoActivate": false,
+            "optional": false
+          }
+        ],
+        "python": {
+          "requirements": "./python/requirements.txt"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "test": "vitest run",
+    "validate": "tsx ../../scripts/validate-manifests.ts",
+    "deploy": "camstack deploy ."
+  },
+  "peerDependencies": {
+    "@camstack/types": "*"
+  },
+  "devDependencies": {
+    "@camstack/types": "1.2.415",
+    "@trpc/client": "^11.16.0",
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.11",
+    "vitest": "^3.2.4"
+  }
+}

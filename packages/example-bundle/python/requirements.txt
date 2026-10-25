@@ -1,0 +1,3 @@
+# The kernel installs this file before onInitialize when
+# camstack.addons[].python.requirements points here.
+# No third-party packages are listed, so pip has nothing to fetch.

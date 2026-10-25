@@ -1,0 +1,25 @@
+{
+  "name": "camstack-addon-examples",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Public examples of a CamStack addon package and a multi-addon bundle.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "validate": "tsx scripts/validate-manifests.ts"
+  },
+  "devDependencies": {
+    "@camstack/types": "1.2.415",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.3",
+    "zod": "^4.3.6"
+  }
+}

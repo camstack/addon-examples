@@ -1,0 +1,5 @@
+export { default as ExampleDevicesAddon } from './example-devices/addon.js'
+export { EXAMPLE_DEVICES_ADDON_ID, SEED_DEVICES } from './example-devices/catalog.js'
+export { default as ExampleListenerAddon, EXAMPLE_LISTENER_ADDON_ID } from './example-listener/addon.js'
+export { default as ExampleExporterAddon } from './example-exporter/addon.js'
+export { EXAMPLE_EXPORTER_ADDON_ID } from './example-exporter/sink.js'
