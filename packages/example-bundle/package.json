@@ -19,7 +19,9 @@
   "files": [
     "dist",
     "assets",
-    "python"
+    "python",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "engines": {
     "node": ">=22"

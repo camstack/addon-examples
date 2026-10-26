@@ -34,7 +34,7 @@ Both packages are ESM (`"type": "module"`). Names follow
 | Field | Role |
 | --- | --- |
 | `main` / `exports` | Point at `dist/`. The hub loads each addon's `camstack.addons[].entry`, not the package barrel. |
-| `files` | What `npm publish` ships: `dist`, plus `assets` and `python` when those exist. |
+| `files` | What `npm publish` ships: `dist`, `README.md`, `CHANGELOG.md`, plus `assets` and `python` when those exist. The hub shows the README and changelog before install. |
 | `engines` | `node >= 22`. |
 | `peerDependencies` | `@camstack/types` — the hub already has it. This build leaves `@camstack/types` external. |
 | `devDependencies` | The compiler, vite, vitest, and a pinned `@camstack/types` so `npm test` typechecks. |
