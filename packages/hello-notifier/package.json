@@ -66,7 +66,7 @@
     "@camstack/types": "*"
   },
   "devDependencies": {
-    "@camstack/types": "1.2.415",
+    "@camstack/types": "1.2.427",
     "@trpc/client": "^11.16.0",
     "@types/node": "^24.10.1",
     "tsx": "^4.20.6",

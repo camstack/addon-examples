@@ -21,6 +21,7 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm run validate
+      - run: npm run check:changelog
       - name: Publish workspaces
         if: false
         run: npm publish --workspaces --access public

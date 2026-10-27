@@ -15,3 +15,5 @@ so the keychain keeps the value. The sink receives only
 (`resolveRunnerId` in `@camstack/types`, addon.ts:1669-1674).
 
 See the bundle package README for every other manifest key.
+
+See [CHANGELOG.md](./CHANGELOG.md) for what changed in each version.

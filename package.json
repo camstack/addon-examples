@@ -14,10 +14,11 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "validate": "tsx scripts/validate-manifests.ts"
+    "validate": "tsx scripts/validate-manifests.ts",
+    "check:changelog": "tsx scripts/check-changelog-unreleased.ts"
   },
   "devDependencies": {
-    "@camstack/types": "1.2.415",
+    "@camstack/types": "1.2.427",
     "tsx": "^4.20.6",
     "typescript": "~5.9.3",
     "zod": "^4.3.6"

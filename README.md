@@ -54,6 +54,16 @@ From `tools/build/vite-lib.preset.ts` in camstack-server:
 
 Do not put secrets in `dependencies`, scripts, or the manifest. A `password` settings field is stored by the keychain.
 
+## Changelog
+
+Each package keeps a `CHANGELOG.md` in the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
+format, the same as the CamStack server packages. Write one line per
+operator-visible change under `## [Unreleased]`, in a `### Added`,
+`### Changed`, `### Fixed` or `### Removed` section. At release, move those
+lines under the new version heading (`## [0.2.0] - YYYY-MM-DD`) and leave
+`## [Unreleased]` empty. `npm run check:changelog` refuses a release whose
+`## [Unreleased]` is empty; the publish workflow runs it first.
+
 ## Publish
 
 The hub installs the version behind the npm dist-tag `latest` (the `beta`

@@ -143,3 +143,5 @@ Present or intentionally absent:
 server repo is under `src/addon/__tests__/`). Specs use
 `test/fake-addon-context.ts` at the repo root. `npm test` runs vitest.
 `npm run validate` checks this manifest.
+
+See [CHANGELOG.md](./CHANGELOG.md) for what changed in each version.

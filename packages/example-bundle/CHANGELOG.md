@@ -10,3 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Changelog packed with the package, next to the existing README.
+
+### Changed
+
+- Built and tested against `@camstack/types` 1.2.427.
